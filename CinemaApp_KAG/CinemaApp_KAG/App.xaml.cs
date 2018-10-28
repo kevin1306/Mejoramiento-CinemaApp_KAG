@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CinemaApp_KAG.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +12,7 @@ namespace CinemaApp_KAG
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new CarteleraPage());
         }
 
         protected override void OnStart()
