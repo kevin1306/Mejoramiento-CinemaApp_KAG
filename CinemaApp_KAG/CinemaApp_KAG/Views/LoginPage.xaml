@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CinemaApp_KAG.Views.LoginPage"
+             Title="Login">
+    <ContentPage.Content>
+
+
+
+
+        <StackLayout>
+            <Label
+                BindingContext="{x:Reference usuarioEntry}"
+                            x:Name="labelMensaje" 
+                            Text="{Binding Text}"/>
+
+            <StackLayout Grid.Row="2" Orientation="Vertical" x:FieldModifier="listPeliculas">
+                <StackLayout Orientation="Vertical" Margin="40,20">
+                    <Entry 
+                           x:Name="usuarioEntry" 
+                           Placeholder="Usuario"/>
+                    <Entry 
+                           x:Name="passwordEntry" 
+                           Placeholder="Password"/>
+                    <Button Text="Ingresar" 
+                            Command="{Binding LoginCommand}"
+                            Clicked="Ingresar"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+
+
+
+
+    </ContentPage.Content>
+</ContentPage>

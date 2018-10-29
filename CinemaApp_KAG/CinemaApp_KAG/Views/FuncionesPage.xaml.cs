@@ -1,4 +1,5 @@
 ﻿using CinemaApp_KAG.Models;
+using CinemaApp_KAG.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,45 +9,49 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace CinemaApp_KAG.Views
+namespace Cinema_ALH.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class FuncionesPage : ContentPage
-	{
-        private ResumenCompra resumencompra;
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class FuncionesPage : ContentPage
+    {
+        Pelicula peliculaElegida = new Pelicula();
 
-         Pelicula PeliculaElegida = new Pelicula();
+        public FuncionesPage(Pelicula funcionPelicula)
+        {
+            InitializeComponent ();
+            BindingContext = funcionPelicula;
+            peliculaElegida = funcionPelicula;
 
-        public FuncionesPage (Pelicula FuncionPelicula)
-		{
-			InitializeComponent ();
-            BindingContext = FuncionPelicula;
-            var PeliculaElegida = new Pelicula();
-            PeliculaElegida = FuncionPelicula;
-		}
+        }
 
-        private async void  Item_Selected(object sender, SelectedItemChangedEventArgs e)
+        private async void Item_Selected(object sender, SelectedItemChangedEventArgs e)
         {
 
             var funcionSeleccionada = e.SelectedItem as Funcion;
-            if (CantidadBoletas.Text== null)
-            {
 
-                DisplayAlert("ERROR", "Digite Cantidad de Boletas ", "OK");
+            if (CantidadBoletas.Text == null)
+            {
+                DisplayAlert("ERROR", "Digite la cantidad de boletas", "OK");
                 return;
             }
             int boletas = Convert.ToInt32(CantidadBoletas.Text);
 
-            int totalBoletas = boletas * funcionSeleccionada.Precio;
+            int total = boletas * funcionSeleccionada.Precio;
 
-            ResumenCompra resumenCompra = new ResumenCompra();
+            ResumenCompra resumencompra = new ResumenCompra();
 
-            resumenCompra.funcion = funcionSeleccionada;
-            resumenCompra.pelicula = PeliculaElegida;
-            resumenCompra.cantidad = boletas;
-            resumenCompra.total = totalBoletas;
+            resumencompra.funcion = funcionSeleccionada;
+            resumencompra.pelicula = peliculaElegida;
+            resumencompra.cantidad = boletas;
+            resumencompra.total = total;
+
 
             await Navigation.PushAsync(new ResumenCompraPage(resumencompra));
         }
-	}
+
+
+
+
+
+    }
 }

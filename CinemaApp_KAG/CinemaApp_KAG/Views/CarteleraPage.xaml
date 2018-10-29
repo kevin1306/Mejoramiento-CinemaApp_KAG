@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CinemaApp_KAG.Views.CarteleraPage">
+             x:Class="CinemaApp_KAG.Views.CarteleraPage"
+             Title="carteleras">
+
     <ListView x:Name="listPelicula" HasUnevenRows="True" ItemsSource="Item_selected">
         <ListView.ItemTemplate>
             <DataTemplate>

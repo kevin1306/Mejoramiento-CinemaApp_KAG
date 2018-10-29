@@ -13,9 +13,9 @@ using Xamarin.Forms.Xaml;
 namespace CinemaApp_KAG.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CarteleraPage : ContentPage
+	public partial class FuncionesPage : ContentPage
 	{
-		public CarteleraPage ()
+		public FuncionesPage (Pelicula pelicula)
 		{
 			InitializeComponent ();
             CargarCartelera();
