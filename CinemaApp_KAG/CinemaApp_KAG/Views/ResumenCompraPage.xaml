@@ -2,23 +2,55 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CinemaApp_KAG.Views.ResumenCompraPage">
-    <ListView x:Name="listCartelera">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
+
+    <StackLayout>
+        <StackLayout>
+            <Image Source="{Binding pelicula.Imagen}"/>
+        </StackLayout>
+        <StackLayout >
+            <Label Text="PELICULA" FontAttributes="Bold"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Titulo:"/>
+                <Label Text="{Binding pelicula.Nombre}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Fecha"/>
+                <Label Text="{Binding pelicula.FechaEstreno}"/>
+            </StackLayout>
+
+        </StackLayout>
+        <StackLayout>
+            <Label Text="FUNCION" FontAttributes="Bold"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Cinema"/>
+                <Label Text="{Binding funcion.Cinema}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Sala"/>
+                <Label Text="{Binding funcion.Sala}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Ciudad"/>
+                <Label Text="{Binding funcion.Ciudad}"/>
+
+            </StackLayout>
 
 
+        </StackLayout>
+        <StackLayout>
+            <Label Text="TIQUETES" FontAttributes="Bold"/>
+            <Label Text="Precio"/>
+            <Label Text="{Binding funcion.Precio}"/>
+            <Label Text="Cantidad"/>
+            <Label Text="{Binding cantidad}"/>
+            <Label Text="Total a pagar"/>
+            <Label Text="{Binding total}"/>
+            <Button Text="Finalizar compra" Clicked="Button_Clicked"/>
+        </StackLayout>
 
+    </StackLayout>
 
-
-
-                </ViewCell>
-
-
-
-            </DataTemplate>
-
-        </ListView.ItemTemplate>
-
-    </ListView>
 </ContentPage>
